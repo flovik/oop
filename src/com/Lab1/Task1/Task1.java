@@ -1,5 +1,5 @@
 package com.Lab1.Task1;
-
+import com.Lab1.Task1.Monitor;
 public class Task1 {
     public static void main(String[] args) {
         Monitor LG = new Monitor();
@@ -20,11 +20,4 @@ public class Task1 {
 
 
     }
-}
-
-class Monitor {
-    public String color;
-    public double dimension;
-    public int height_p;
-    public int width_p;
 }

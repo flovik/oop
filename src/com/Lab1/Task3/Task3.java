@@ -1,7 +1,7 @@
 package com.Lab1.Task3;
-
+import com.Lab1.Task3.Student;
+import com.Lab1.Task3.University;
 public class Task3 {
-
     public static void main(String[] args) {
         Student student1 = new Student("Mustuc", "Mihai", 20, 9, 8, 6);
         Student student2 = new Student("Baclajan", "Marcel", 20, 10, 9, 10);
@@ -38,42 +38,5 @@ public class Task3 {
 
         double average = (university_UTM.media + university_USM.media + university_AGRARA.media) / 3;
         System.out.println("Media universitatilor: " + average);
-    }
-}
-
-class Student {
-    public String last_name;
-    public String first_name;
-    public int age;
-    public double mark_math;
-    public double mark_sda;
-    public double mark_oop;
-
-    public Student(String fn, String ln, int a, double m_math, double m_sda, double m_oop){
-        first_name = fn;
-        last_name = ln;
-        age = a;
-        mark_math = m_math;
-        mark_sda = m_sda;
-        mark_oop = m_oop;
-    }
-}
-
-class University {
-    public String name;
-    public int foundationYear;
-    Student[] studentList;
-    double media;
-
-    University(String n, int fy) {
-        name = n;
-        foundationYear = fy;
-    }
-
-    public void CalculateMedia(){
-        for(int i = 0; i < studentList.length; i++) {
-            media +=  (studentList[i].mark_math + studentList[i].mark_sda + studentList[i].mark_oop) / 3;
-        }
-        media /= studentList.length;
     }
 }
