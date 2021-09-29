@@ -1,5 +1,7 @@
-package com.Lab2.Task2;
-import com.Lab2.Task2.Stack;
+package com.Lab2.Task3;
+
+import com.Lab2.Task3.Stack;
+
 public class Queue {
     Stack st1;
     Stack st2;
@@ -34,24 +36,24 @@ public class Queue {
             st1.push(st2.peek().val);
             st2.pop();
         }
-        if (current_numbers != -1)
-            current_numbers++;
+        if (current_numbers != -1) current_numbers++;
     }
 
-   public void pop(){
+    public void pop(){
         st1.pop();
-        if(current_numbers > 0)
-            current_numbers--;
+        if(current_numbers > 0) current_numbers--;
     }
 
     public void peek(){
-        if(st1.peek() != null)
-            System.out.println(st1.peek().val);
-        else
-            System.out.println("Queue is empty");
+        if(st1.peek() != null) System.out.println(st1.peek().val);
+        else System.out.println("Queue is empty");
     }
 
     public boolean isEmpty(){
         return st1.isEmpty();
+    }
+    public void isFull() {
+        if(current_numbers == -1) System.out.println("Queue is never full");
+        else System.out.println("You used " + current_numbers + " chunks of space out of " + numbers + " total");
     }
 }

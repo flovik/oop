@@ -1,10 +1,10 @@
-package com.Lab2.Task2;
+package com.Lab2.Task3;
 
 public class Stack {
-    Node root;
+    Stack.Node root;
     class Node {
         int val;
-        Node next;
+        Stack.Node next;
 
         Node(int val) {
             this.val = val;
@@ -12,7 +12,7 @@ public class Stack {
     }
 
     public void push(int data){
-        Node node = new Node(data);
+        Stack.Node node = new Node(data);
         if(root == null){
             root = node;
         } else {
@@ -40,5 +40,4 @@ public class Stack {
 
         return false;
     }
-
 }
