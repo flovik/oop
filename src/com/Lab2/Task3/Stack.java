@@ -13,9 +13,9 @@ public class Stack {
 
     public void push(int data){
         Stack.Node node = new Node(data);
-        if(root == null){
+        if(root == null)
             root = node;
-        } else {
+        else {
             Node temp = root; //set temp as root node
             root = node; //set the current node as root node (top of stack)
             node.next = temp; //set the pointer of current node to the lower node in stack
@@ -26,6 +26,7 @@ public class Stack {
         if(root != null)
             root = root.next;
     }
+
     public Node peek() {
         if (root == null)
             return null;
@@ -34,9 +35,8 @@ public class Stack {
     }
 
     public boolean isEmpty(){
-        if(root == null){
+        if(root == null)
             return true;
-        }
 
         return false;
     }

@@ -17,10 +17,10 @@ public class Box {
         depth = all;
     }
 
-    Box(int h, int w, int d){
-        height = h;
-        width = w;
-        depth = d;
+    Box(int height_, int width_, int depth_){
+        height = height_;
+        width = width_;
+        depth = depth_;
 
     }
 }

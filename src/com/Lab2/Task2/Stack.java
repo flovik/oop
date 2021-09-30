@@ -26,6 +26,7 @@ public class Stack {
         if(root != null)
             root = root.next;
     }
+
     public Node peek() {
         if (root == null)
             return null;
@@ -34,11 +35,9 @@ public class Stack {
     }
 
     public boolean isEmpty(){
-        if(root == null){
+        if(root == null)
             return true;
-        }
 
         return false;
     }
-
 }
