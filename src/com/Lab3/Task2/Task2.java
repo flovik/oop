@@ -1,5 +1,4 @@
 package com.Lab3.Task2;
-
 public class Task2 {
     public static void main(String[] args) {
         String s = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in congue diam. Morbi convallis metus ante, sed porta massa rutrum ac. " +
@@ -17,9 +16,9 @@ public class Task2 {
                 "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. " +
                 "Aenean eleifend urna ut tortor suscipit vulputate at ac odio. Praesent libero est, placerat vitae fringilla eu, dictum ut orci. Suspendisse mauris arcu, tempor.";
 
-        TextManipulator tx = new TextManipulator();
-        tx.numberLetters(s);
-        tx.numberVowels(s);
-        tx.numberConsonants(s);
+        TextManipulator tx = new TextManipulator(s);
+        System.out.println("Number of letters: " + tx.showLetters());
+        System.out.println("Number of vowels: " + tx.showVowels());
+        System.out.println("Number of consonants: " + tx.showConsonants());
     }
 }

@@ -18,8 +18,8 @@ public class Task1 {
                 "Aenean eleifend urna ut tortor suscipit vulputate at ac odio. Praesent libero est, placerat vitae fringilla eu, dictum ut orci. Suspendisse mauris arcu, tempor.";
 
 
-        TextManipulator tx = new TextManipulator();
-        tx.numberSentences(s);
-        tx.showWords(s);
+        TextManipulator tx = new TextManipulator(s);
+        System.out.println("Number of sentences: " + tx.numberSentences());
+        System.out.println("Number of words: " + tx.showWords());
     }
 }

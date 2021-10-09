@@ -1,73 +1,74 @@
 package com.Lab3.Task3;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+
 public class TextManipulator {
-    public void showWords(String s) {
-        int words = 0;
-        boolean non_letter_sequence = false;
-        for(int i = 0; i < s.length(); i++){
-            if((s.charAt(i) < 65 || (s.charAt(i) > 90 && s.charAt(i) < 97) || s.charAt(i) > 122) && non_letter_sequence == false) {
-                words++;
-                non_letter_sequence = true;
-            }
-
-            if((s.charAt(i) > 64 && s.charAt(i) < 91) || (s.charAt(i) > 96 && s.charAt(i) < 123)) {
-                non_letter_sequence = false;
-            }
-        }
-
-        System.out.println("Words: " + words);
+    private String s;
+    public TextManipulator(String text) {
+        this.s = text;
     }
 
-    public void numberSentences(String s) {
-        int sentences = 0;
-        for(int i = 0; i < s.length(); i++){
-            if(s.charAt(i) == '.' || s.charAt(i) == '!' || s.charAt(i) == '?') {
-                sentences++;
-            }
-        }
-
-        System.out.println("Sentences: " + sentences);
+    public void setText(String s) {
+        this.s = s;
     }
 
-    public void numberLetters(String s){
-        int letters = 0;
-        for(int i = 0; i < s.length(); i++){
-            if((s.charAt(i) > 64 && s.charAt(i) < 91) || (s.charAt(i) > 96 && s.charAt(i) < 123)) {
-                letters++;
-            }
-        }
-
-        System.out.println("Letters: " + letters);
+    public String getText() {
+        return s;
     }
 
-    public boolean isVowel(char a){
-        if(a == 'a' || a == 'e' || a == 'i' || a == 'o' || a == 'u') {
-            return true;
+    private String[] splitString() {
+        String[] words = s.split("\\s+");
+
+        for(int i = 0; i < words.length; i++) {
+            words[i] = words[i].toLowerCase();
+            words[i] = words[i].replace(",", "");
+            words[i] = words[i].replace(".", "");
         }
 
-        return false;
+        return words;
     }
 
-    public void numberVowels(String s){
-        int vowels = 0;
-        for(int i = 0; i < s.length(); i++){
-            if(isVowel(s.charAt(i))) {
-                vowels++;
-            }
-        }
+    public String longestWord() {
+        String[] words = splitString();
+        String temp = "";
+        for(int i = 0; i < words.length; i++)
+            if(words[i].length() > temp.length())
+                temp = words[i];
 
-        System.out.println("Vowels: " + vowels);
+        return temp;
     }
 
-    public void numberConsonants(String s){
-        int consonants = 0;
-        for(int i = 0; i < s.length(); i++){
-            if((s.charAt(i) > 64 && s.charAt(i) < 91) || (s.charAt(i) > 96 && s.charAt(i) < 123) && !isVowel(s.charAt(i))){
-                consonants++;
+    public ArrayList popularWords() {
+        String[] words = splitString();
+        HashMap<String, Integer> m = new HashMap<>();
+        int popular = 0;
+        for(int i = 0; i < words.length; i++) {
+            if (m.containsKey(words[i])) {
+                m.put(words[i], m.get(words[i]) + 1);
+            } else {
+                m.put(words[i], 1);
             }
+
+            if(m.get(words[i]) > popular)
+                popular = m.get(words[i]);
         }
 
-        System.out.println("Consonants: " + consonants);
+        ArrayList<String> w = new ArrayList<>();
+        while(w.size() != 5) {
+            for (HashMap.Entry<String, Integer> entry : m.entrySet()) {
+                if(w.size() == 5)
+                    break;
+
+                if(entry.getValue().equals(popular)) {
+                    w.add(entry.getKey());
+                }
+            }
+            popular--;
+        }
+
+        return w;
     }
 }
-
