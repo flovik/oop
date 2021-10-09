@@ -2,15 +2,6 @@ package com.Lab2.Task2;
 
 public class Stack {
     Node root;
-    class Node {
-        int val;
-        Node next;
-
-        Node(int val) {
-            this.val = val;
-        }
-    }
-
     public void push(int data){
         Node node = new Node(data);
         if(root == null){

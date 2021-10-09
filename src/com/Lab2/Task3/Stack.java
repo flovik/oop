@@ -1,18 +1,10 @@
 package com.Lab2.Task3;
 
 public class Stack {
-    Stack.Node root;
-    class Node {
-        int val;
-        Stack.Node next;
-
-        Node(int val) {
-            this.val = val;
-        }
-    }
+    Node root;
 
     public void push(int data){
-        Stack.Node node = new Node(data);
+        Node node = new Node(data);
         if(root == null)
             root = node;
         else {
