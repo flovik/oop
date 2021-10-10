@@ -1,9 +1,6 @@
 package com.Lab3.Task3;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class TextManipulator {
     private String s;
@@ -41,7 +38,7 @@ public class TextManipulator {
         return temp;
     }
 
-    public ArrayList popularWords() {
+    public List popularWords() {
         String[] words = splitString();
         HashMap<String, Integer> m = new HashMap<>();
         int popular = 0;
@@ -56,19 +53,31 @@ public class TextManipulator {
                 popular = m.get(words[i]);
         }
 
-        ArrayList<String> w = new ArrayList<>();
-        while(w.size() != 5) {
-            for (HashMap.Entry<String, Integer> entry : m.entrySet()) {
-                if(w.size() == 5)
-                    break;
-
-                if(entry.getValue().equals(popular)) {
-                    w.add(entry.getKey());
-                }
-            }
-            popular--;
+        List<HashMap.Entry<String, Integer>> list = new LinkedList<>();
+        for(HashMap.Entry<String, Integer> entry : m.entrySet()) {
+            list.add(entry);
         }
 
-        return w;
+        //comparator to sort in decreasing order
+
+        Collections.sort(list, new Comparator<HashMap.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                String word1 = o1.getKey();
+                int freq1 = o1.getValue();
+                String word2 = o2.getKey();
+                int freq2 = o2.getValue();
+
+                if(freq1 != freq2)
+                    return freq2 - freq1;
+                else return word1.compareTo(word2);
+            }
+        });
+
+        List<String> ans = new LinkedList<>();
+        for(int i = 0; i < 5; i++)
+            ans.add(list.get(i).getKey());
+
+        return ans;
     }
 }

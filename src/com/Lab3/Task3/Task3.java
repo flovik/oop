@@ -1,6 +1,5 @@
 package com.Lab3.Task3;
-
-import java.util.ArrayList;
+import java.util.List;
 
 public class Task3 {
     public static void main(String[] args) {
@@ -25,7 +24,7 @@ public class Task3 {
         TextManipulator tx = new TextManipulator(s);
         System.out.println("Longest word in text is: " + tx.longestWord());
         System.out.println("Top 5 most common words: ");
-        ArrayList<String> ans =  tx.popularWords();
+        List<String> ans =  tx.popularWords();
         for(String word : ans) {
             System.out.println(word);
         }
